@@ -67,9 +67,6 @@ class IsingHamiltonian:
 
         e += np.dot(self.mu, 2 * config.config - 1)
         return e
-
-
-    #test comment
     
     def delta_e_for_flip(self, i, config):
         """Compute the energy change incurred if one were to flip the spin at site i
