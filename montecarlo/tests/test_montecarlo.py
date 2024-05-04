@@ -6,7 +6,7 @@ Unit and regression test for the montecarlo package.
 import sys
 
 import pytest
-
+import numpy as np
 import montecarlo
 
 
