@@ -1,0 +1,147 @@
+# # Particle in box
+# import matplotlib
+# # Enable interactive plot
+# import matplotlib.pyplot as plt
+# from matplotlib.animation import FuncAnimation
+# import numpy as np
+
+# A = 1e-10               # m; one angstrom
+# me = 9.1093837e-31      # kg; mass of electron
+# hbar = 1.05457182e-34   # m^2 kg / s
+# n_grid = 100
+
+# # L = 10*A
+
+# # 
+# L = 1
+# hbar = 1
+
+# x = np.linspace(0, L, n_grid)
+# delta_x = x[1]-x[0]
+
+
+# def energy(n, m=me, L=L):
+#     return (n*hbar*np.pi)**2 / (2*m*L**2)
+
+# def norm(x, p):
+#     pass
+
+# def psi(x, n, t=0, m=me, L=L):
+#     E = energy(n, m, L)
+#     return (2/L)*np.sin((np.pi*n*x)/L)*np.exp((-1j*E*t)/hbar)
+    
+# # Graph
+# def energy(bs: BitString, G: nx.Graph):
+#     """Compute energy of configuration, `bs`
+
+#         .. math::
+#             E = \\left<\\hat{H}\\right>
+
+#     Parameters
+#     ----------
+#     bs   : Bitstring
+#         input configuration
+#     G    : Graph
+#         input graph defining the Hamiltonian
+#     Returns
+#     -------
+#     energy  : float
+#         Energy of the input configuration
+#     """
+#     # print(bs)
+#     e = 0.0
+#     for i in range(bs.N):
+#         for j in G.neighbors(i):
+#             if j < i:
+#                 continue
+#             if bs.config[i] == bs.config[j]:
+#                 e += G[i][j]['weight']
+#             else:
+#                 e -= G[i][j]['weight']
+
+#     # print(e)
+#     return e
+
+
+# x = [] # Store list of indices
+# y = [] # Store list of energies
+# xmin = None # configuration of minimum energy configuration
+# emin = 0 # minimum of energy
+# my_bs = BitString(10)
+
+# # Add code here to find the lowest energy configuration
+# for i in range(2**len(my_bs)):
+#     x.append(i)
+#     my_bs.set_int_config(i)
+#     y.append(energy(my_bs, G))
+#     if(y[i] < emin):
+#         emin = y[i]
+#         xmin = x[i]
+# # print(emin)
+
+# # Print out all the energies
+# plt.plot(x,y);
+
+# # Print out the lowest energy configuration
+# my_bs.set_int_config(xmin)
+# print(" Lowest energy %12.8f: %s" %(emin, my_bs))
+
+# assert(abs(energy(my_bs, G) - -9) < 1e-12)
+
+
+# # ising
+# def compute_average_values(bs:BitString, G: nx.Graph, T: float):
+#     """
+#     Compute the average value of Energy, Magnetization, 
+#     Heat Capacity, and Magnetic Susceptibility 
+
+#         .. math::
+#             E = \\left<\\hat{H}\\right>
+
+#     Parameters
+#     ----------
+#     bs   : Bitstring
+#         input configuration
+#     G    : Graph
+#         input graph defining the Hamiltonian
+#     T    : float
+#         temperature of the system
+#     Returns
+#     -------
+#     energy  : float
+#     magnetization  : float
+#     heat capacity  : float
+#     magnetic susceptibility  : float
+#     """
+#     beta = np.float128(1 / (1.38064852 * 10**-23 * T))
+
+#     E = 0.0
+#     M = 0.0
+#     HC = 0.0
+#     MS = 0.0
+
+#     E2 = 0.0
+#     M2 = 0.0
+#     Z = 0.0
+
+#     for i in range(2**bs.N):
+#         bs.set_int_config(i)
+#         Ei = energy(bs, G)
+#         Mi = np.sum(2*bs.config - 1)
+#         Zi = np.exp(-Ei / T)
+#         E += Ei * Zi
+#         E2 += (Ei**2) * Zi
+#         M += Mi * Zi
+#         M2 += (Mi**2) * Zi
+#         Z += Zi
+
+#     E = E / Z
+#     M = M / Z
+#     E2 = E2 / Z
+#     M2 = M2 / Z
+
+#     HC = (E2 - E**2) * T**-2
+#     MS = (M2 - M**2) * T**-1
+
+
+#     return E, M, HC, MS

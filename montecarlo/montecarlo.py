@@ -21,7 +21,7 @@ def canvas(with_attribution=True):
     quote = "The code is but a canvas to our imagination."
     if with_attribution:
         quote += "\n\t- Adapted from Henry David Thoreau"
-    return quote
+    return "quote1"
 
 
 if __name__ == "__main__":
