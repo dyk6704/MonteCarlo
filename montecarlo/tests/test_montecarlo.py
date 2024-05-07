@@ -43,7 +43,7 @@ def test_Bistring():
 def test_average_values():
     N = 6
     Jval = 2.0
-    T = 1.0
+    T = 1
 
     mu = [.1 for i in range(N)]
     J = []
