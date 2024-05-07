@@ -50,6 +50,7 @@ def test_average_values():
 
     for i in range(N):
         J.append([((i+1) % N, Jval), ((i-1) % N, Jval)])
+    J[0] = [((1) % N, Jval), ((N-1) % N, Jval)]
 
     ham = montecarlo.IsingHamiltonian(J=J, mu=mu)
 
