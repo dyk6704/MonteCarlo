@@ -31,5 +31,5 @@ python:
     install:
     - requirements: requirements.txt
 
-conda:
-  environment: ./docs/requirements.yaml
+# conda:
+#   environment: ./docs/requirements.yaml
