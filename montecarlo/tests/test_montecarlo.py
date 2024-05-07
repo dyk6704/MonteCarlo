@@ -27,7 +27,7 @@ def test_Bistring():
 
     bs2 = montecarlo.BitString(12)
     bs2.set_config([1,0,0,0,0,1,0,0,1,0,1,0])
-    assert(bs2.config == [1,0,0,0,0,1,0,0,1,0,1,0])
+    assert(all(bs2.config == [1,0,0,0,0,1,0,0,1,0,1,0]))
 
     assert(bs2.on() == 4)
     assert(bs2.off() == 8)
@@ -50,7 +50,7 @@ def test_average_values():
     for i in range(N):
         J.append([((i+1) % N, Jval), ((i-1)%N, Jval)])
 
-    ham = montecarlo.get_IsingHamiltonian(J=J, mu=mu)
+    ham = montecarlo.IsingHamiltonian(J=J, mu=mu)
 
     E, M, HC, MS = ham.compute_average_values(T)
 
