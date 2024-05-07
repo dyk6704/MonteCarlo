@@ -3,11 +3,10 @@ Unit and regression test for the montecarlo package.
 """
 
 # Import package, test suite, and other packages as needed
-import sys
-
-import pytest
-import numpy as np
 import montecarlo
+import sys
+import numpy as np
+import pytest
 
 
 def test_montecarlo_imported():

@@ -4,4 +4,7 @@ API Documentation
 .. autosummary::
    :toctree: autosummary
 
-   montecarlo.canvas
+   montecarlo.BitString 
+   montecarlo.IsingHamiltonian
+
+
