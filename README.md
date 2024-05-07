@@ -1,6 +1,7 @@
 MonteCarlo
 ==============================
 [//]: # (Badges)
+[![Documentation Status](https://readthedocs.org/projects/montecarlo-dyk6704/badge/?version=latest)](https://montecarlo-dyk6704.readthedocs.io/en/latest/?badge=latest)
 [![GitHub Actions Build Status](https://github.com/dyk6704/montecarlo/workflows/CI/badge.svg)](https://github.com/dyk6704/montecarlo/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/dyk6704/MonteCarlo/branch/main/graph/badge.svg)](https://codecov.io/gh/dyk6704/MonteCarlo/branch/main)
 
