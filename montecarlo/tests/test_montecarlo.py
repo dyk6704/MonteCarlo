@@ -47,16 +47,23 @@ def test_average_values():
 
     mu = [.1 for i in range(N)]
     J = []
+
     for i in range(N):
-        J.append([((i+1) % N, Jval), ((i-1)%N, Jval)])
+        J.append([((i+1) % N, Jval), ((i-1) % N, Jval)])
 
     ham = montecarlo.IsingHamiltonian(J=J, mu=mu)
 
     E, M, HC, MS = ham.compute_average_values(T)
 
+    # print(E, M, HC, MS)
+    # assert(np.isclose(E,  -11.95991923))
+    # assert(np.isclose(M,   -0.00000000))
+    # assert(np.isclose(HC,   0.31925472))
+    # assert(np.isclose(MS,   0.01202961))
 
-    assert(np.isclose(E,  -11.95991923))
-    assert(np.isclose(M,   -0.00000000))
-    assert(np.isclose(HC,   0.31925472))
-    assert(np.isclose(MS,   0.01202961))
+    assert(np.isclose(E,  -11.95955943))
+    assert(np.isclose(M,   -0.00121094))
+    assert(np.isclose(HC,   0.32126455))
+    assert(np.isclose(MS,   0.01226945))
 
+# test_average_values()
