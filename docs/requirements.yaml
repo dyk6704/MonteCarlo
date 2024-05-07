@@ -1,16 +1,14 @@
 name: docs_MonteCarlo
 channels:
-
-  - defaults
 dependencies:
     # Base depends
   - python
   - pip
   
-
-
+    # Package depends
+  - numpy
+  - matplotlib
 
     # Pip-only installs
   - pip:
-    - -e ../
-
+        - sphinx-rtd-theme
