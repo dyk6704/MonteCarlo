@@ -42,8 +42,10 @@ class BitString:
     def int(self):
         return int(''.join(map(str, self.config)), 2)
 
-    def set_config(self, s:list[int]):
-        self.config += s
+    def set_config(self, s):#:list[int]):
+        for n in range(len(s)):
+            self.config[n] = s[n]
+        #self.config += s
         
     def set_int_config(self, dec:int):
         for i in range(0,self.N):
