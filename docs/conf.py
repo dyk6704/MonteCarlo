@@ -50,8 +50,8 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.intersphinx',
     'sphinx.ext.extlinks',
-    'sphinx.ext.sphinx_design',
-    'sphinx.ext.sphinx_copybutton',    
+    # 'sphinx_design',
+    'sphinx_copybutton',    
 ]
 
 
