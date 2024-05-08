@@ -137,19 +137,17 @@ class IsingHamiltonian:
 
         return E, M, HC, MS
 
-    def metropolis_sweep(self, conf, T=1.0):
-        """Perform a single sweep through all the sites and return updated configuration
+    def get_lowest_energy_config(self, verbose=0):
+        N = self.N
+        xmin = None # configuration of minimum energy configuration
+        emin = 0 # minimum of energy
+        conf = montecarlo.BitString(N)
 
-        Parameters
-        ----------
-        conf   : :class:`BitString`
-            input configuration
-        T      : int
-            Temperature
-
-        Returns
-        -------
-        conf  : :class:`BitString`
-            Returns updated config
-        """
-        pass
+        # Add code here to find the lowest energy configuration
+        for i in range(2**N):
+            conf.set_int_config(i)
+            if(self.energy(conf) < emin):
+                emin = self.energy(conf)
+                xmin.set_int_config(i)
+        
+        return emin, xmin
