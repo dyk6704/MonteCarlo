@@ -139,18 +139,16 @@ class IsingHamiltonian:
 
     def get_lowest_energy_config(self, verbose=0):
         N = self.N
-        xmin = None # configuration of minimum energy configuration
+        xmin = None # integer value of bitstring configuration of minimum energy configuration
         emin = 0 # minimum of energy
         bs = montecarlo.BitString(N)
 
-        # Add code here to find the lowest energy configuration
         for i in range(2**N):
             bs.set_int_config(i)
             if(self.energy(bs) < emin):
                 emin = self.energy(bs)
                 xmin = i
+
+        bs.set_int_config(xmin)
         
-        return emin, xmin
-    
-    def printsomething():
-        print("testing")
+        return emin, bs
