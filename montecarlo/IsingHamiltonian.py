@@ -137,7 +137,7 @@ class IsingHamiltonian:
 
         return E, M, HC, MS
 
-    def get_lowest_energy_config(self):
+    def get_lowest_energy_config(self, verbose=0):
         N = self.N
         xmin = None # configuration of minimum energy configuration
         emin = 0 # minimum of energy
@@ -151,3 +151,6 @@ class IsingHamiltonian:
                 xmin = i
         
         return emin, xmin
+    
+    def printsomething():
+        print("testing")
