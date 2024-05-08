@@ -137,33 +137,17 @@ class IsingHamiltonian:
 
         return E, M, HC, MS
 
-    # def get_lowest_energy_config(self, verbose=0):
-    #     N = self.N
-    #     xmin = None # configuration of minimum energy configuration
-    #     emin = 0 # minimum of energy
-    #     conf = montecarlo.BitString(N)
+    def get_lowest_energy_config(self):
+        N = self.N
+        xmin = None # configuration of minimum energy configuration
+        emin = 0 # minimum of energy
+        bs = montecarlo.BitString(N)
 
-    #     # Add code here to find the lowest energy configuration
-    #     for i in range(2**N):
-    #         conf.set_int_config(i)
-    #         if(self.energy(conf) < emin):
-    #             emin = self.energy(conf)
-    #             xmin.set_int_config(i)
+        # Add code here to find the lowest energy configuration
+        for i in range(2**N):
+            bs.set_int_config(i)
+            if(self.energy(bs) < emin):
+                emin = self.energy(bs)
+                xmin = i
         
-    #     return emin, xmin
-
-    def get_lowest_energy_config(self, verbose=0):
-        xmin = None     # configuration of minimum energy configuration
-        emin = 0        # minimum of energy
-        bs = montecarlo.BitString(self.N)
-
-        for b in range(0,  2**self.N):
-            bs.set_int_config(b)
-            ecurr = self.energy(bs)
-            if verbose > 0:
-                print(" %12.8f %s"%(ecurr, bs))
-            if ecurr < emin:
-                emin = ecurr
-                xmin = b
-
         return emin, xmin
